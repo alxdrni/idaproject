@@ -174,6 +174,9 @@ const actions = {
 }
 
 const getters = {
+  orderedColumns (state) {
+    return [state.activeColumn, ...state.visibleColumns.filter(column => column !== state.activeColumn)]
+  },
   pagesCount (state) {
     return Math.ceil(state.products.length / state.productsPerPage)
   },

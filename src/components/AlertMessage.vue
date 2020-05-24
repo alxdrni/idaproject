@@ -85,7 +85,6 @@ export default {
       this.isOpened = true
     },
     closeMessage () {
-      console.log('close')
       this.isOpened = false
     },
     clickOutside (e) {

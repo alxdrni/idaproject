@@ -21,7 +21,7 @@
           />
         </th>
         <th
-          v-for="column in visibleColumns"
+          v-for="column in orderedColumns"
           :key="column.key"
           :class="{'product-table__cell--max-size': column.key === 'product', 'product-table__cell--active': column === activeColumn}"
           class="product-table__cell product-table__cell--sticky"
@@ -68,7 +68,7 @@
           />
         </td>
         <td
-          v-for="column in visibleColumns"
+          v-for="column in orderedColumns"
           :key="item.id + column.key"
           :class="{'product-table__cell--max-size': column.key === 'product'}"
           class="product-table__cell"
@@ -127,14 +127,14 @@ export default {
   computed: {
     ...mapState([
       'columns',
-      'visibleColumns',
       'activeColumn',
       'productsAscSort',
       'products',
       'selectedProducts'
     ]),
     ...mapGetters([
-      'productsChunk'
+      'productsChunk',
+      'orderedColumns'
     ]),
     messageText () {
       return this.messageError ? `Something has gone wrong:<br><strong> ${this.messageError} </strong>` : '<p>Are you sure you want to <strong>delete item</strong>?</p>'

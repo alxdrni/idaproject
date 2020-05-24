@@ -1,13 +1,17 @@
-const webpack = require('webpack');
-const path = require('path');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const TerserJSPlugin = require('terser-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
   mode: process.env.NODE_ENV,
   stats: 'errors-only',
   entry: './src/index.js',
+  optimization: {
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
+  },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     hot: true,
@@ -40,8 +44,7 @@ const config = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1//,
-              //modules: true
+              importLoaders: 1
             }
           },
           'postcss-loader'
@@ -53,10 +56,10 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: 'assets/images/[name].[ext]',
-            },
-          },
-        ],
+              name: 'assets/images/[name].[ext]'
+            }
+          }
+        ]
       },
       {
         test: /\.(ttf|otf|woff|woff2)$/i,
@@ -64,10 +67,10 @@ const config = {
           {
             loader: 'file-loader',
             options: {
-              name: 'assets/fonts/[name].[ext]',
-            },
-          },
-        ],
+              name: 'assets/fonts/[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
@@ -77,7 +80,7 @@ const config = {
       '.vue'
     ],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      vue$: 'vue/dist/vue.esm.js',
       '@src': path.resolve(__dirname, 'src/')
     }
   },
@@ -90,6 +93,6 @@ const config = {
       filename: 'styles.css'
     })
   ]
-};
+}
 
-module.exports = config;
+module.exports = config
