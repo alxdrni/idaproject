@@ -1,0 +1,18 @@
+{
+    "root": true,
+    "parserOptions": {
+        "parser": "babel-eslint",
+        "ecmaVersion": 2017,
+        "sourceType": "module"
+    },
+    "extends": [
+        "standard",
+        "plugin:vue/recommended"
+    ],
+    "rules": {
+      "no-new": 0,
+      "vue/html-closing-bracket-newline": ["error", {
+        "multiline": "always"
+      }]
+    }
+}

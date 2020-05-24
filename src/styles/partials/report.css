@@ -1,0 +1,9 @@
+.report {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.report__text {
+  margin-right: 1em;
+}

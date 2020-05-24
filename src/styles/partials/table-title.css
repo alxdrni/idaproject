@@ -1,0 +1,8 @@
+.table-title {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--button-disabled-border-color);
+  margin: 0;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 1.25;
+}

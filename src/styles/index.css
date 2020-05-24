@@ -1,0 +1,42 @@
+@import 'normalize.css';
+@import './colors.css';
+@import './partials/index.css';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 14px;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: var(--black-color);
+}
+
+strong {
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  &:hover {
+    outline: none;
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
