@@ -37,7 +37,7 @@ const state = {
   systemReport: null,
   sortingProductsBy: 'product',
   productsPerPage: 10,
-  perPageVariants: [10, 15, 20, 1000],
+  perPageVariants: [10, 15, 20],
   currentPage: 1,
   activeColumn: columns[0],
   visibleColumns: [...columns],
